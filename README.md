@@ -4,58 +4,60 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 [![roadmap.sh](https://img.shields.io/badge/roadmap.sh-Project%20Idea-blue?style=for-the-badge&logo=roadmapdotsh)](https://roadmap.sh/projects/js-grade-report-generator)
 
-Una herramienta ligera, modular y eficiente para generar reportes de calificaciones académicos en JavaScript. Permite procesar de forma rápida desde un único estudiante hasta grandes volúmenes de datos, devolviendo un objeto estructurado con toda la información clave (calificación en letra, estado de aprobación y retroalimentación personalizada).
+A lightweight, modular, and efficient tool to generate academic grade reports in JavaScript. Designed to seamlessly process anything from a single student to thousands, it delivers a clean, structured object containing all essential student information straight to the point.
 
 ---
 
-## 🚀 Características Principal
+## 🚀 Features
 
-- **Alto Rendimiento y Escalabilidad:** Diseñado con bajo consumo de recursos para procesar lotes de calificaciones sin penalizar el rendimiento.
-- **Arquitectura Modular:** Componentes e independientes que facilitan la adaptación, mantenimiento e integración en proyectos existentes.
-- **Lógica Transparente y Personalizable:** Estructura clara y directa, fácil de ajustar según los criterios de evaluación requeridos.
-- **Código Limpio (Clean Code):** Optimizado para facilitar la lectura, depuración y extensibilidad.
-
----
-
-## 🛠️ Tecnologías Utilizadas
-
-- **JavaScript (ES6+ Vanilla):** Seleccionado por su simplicidad, cero dependencias externas (zero-overhead) y compatibilidad universal en navegadores y entornos como Node.js.
+- **High Performance & Scalability:** Lightweight and optimized to process large batches of grades without performance drops or unnecessary overhead.
+- **Modular Architecture:** Built with independent utilities that make it easy to adapt, maintain, and integrate into any workflow.
+- **Full Customization:** Straightforward and transparent logic, making it easy to adjust grading criteria to fit your needs.
+- **Clean Code:** Designed with readability and maintainability in mind.
 
 ---
 
-## 🧠 Aprendizajes y Desafíos Resueltos
+## 🛠️ Technologies Used
 
-- **Modularización y Retorno de Funciones:** Integración de funciones utilitarias independientes con un manejo preciso del flujo de datos mediante la instrucción `return`.
-- **Árboles de Decisión Complejos:** Manejo estructurado y limpio de múltiples condiciones para evaluar puntuaciones y asignar calificaciones sin caer en código redundante.
+- **Vanilla JavaScript (ES6+):** Chosen for its simplicity, flexibility, zero-overhead performance, and universal compatibility.
 
 ---
 
-## 💻 Modo de Uso
+## 🧠 Challenges Overcome
 
-1. Clona o descarga el código fuente en tu directorio de trabajo.
-2. Importa la función principal o las utilidades necesarias en tu módulo.
+- **Mastering Functions & Return Values:** Successfully unifying independent utility functions and understanding the flow of the `return` keyword.
+- **Complex Conditional Logic:** Implementing multi-branched condition trees cleanly and efficiently to evaluate scores accurately.
 
-### Ejemplo de código
+---
+
+## 💻 How to Use
+
+1. Clone or download the source code into your project directory.
+2. Import the main function or individual utilities into your module.
+
+### Example Usage
 
 ```javascript
-function createGradeReport(name, score) {
-    const grade = getLetterGrade(score);
-    const feed = getFeedback(grade);
+function createGradeReport(name, score){
+    let feed = getFeedback(getLetterGrade(score))
 
-    return {
+    let result = {
         name: name,
         score: score,
-        grade: grade,
+        grade: getLetterGrade(score),
         passed: hasPassed(score),
-        feedback: feed
+        feedback: feed,
     };
+
+
+    return result;
 }
 
-// Ejemplo de ejecución
+// Example execution
 console.log(createGradeReport('Ava', 92));
 
 /*
-Salida esperada:
+Output:
 {
   name: 'Ava',
   score: 92,
